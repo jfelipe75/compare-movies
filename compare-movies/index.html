@@ -7,7 +7,22 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div id="movie-grid"></div>
+    <form aria-label="movie-form" id="movie-form">
+      <h2>Movie Form</h2>
+      <label for="movie-title">Movie Title: </label>
+      <input type="text" name="title" id="movie-title" required />
+      <label for="movie-genre">Movie Genre: </label>
+      <input type="text" name="genre" id="movie-genre" required />
+      <label for="audience-score">Audience Score: </label>
+      <input type="text" name="audienceScore" id="audience-score" required />
+      <label for="domestic">Domestic: </label>
+      <input type="text" name="domestic" id="domestic" required />
+      <label for="critic-score">Critic Score: </label>
+      <input type="text" name="criticScore" id="critic-score" required />
+      <button type="submit">Add Movie</button>
+    </form>
+    <div id="movie-grid"><!--Insert movie items here--></div>
+    <div id="graphs-grid"><!-- Insert graphs here--></div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

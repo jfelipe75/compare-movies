@@ -8,9 +8,33 @@ export const setLocalStorageKey = (key, value) => {
 };
 
 export const getLocalStorageKey = (key) => {
-  return JSON.parse(localStorage.getItem(key));
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : [];
 };
 
-// save array of movies data to local storage.
+// Set default movie data to local storage only if it's not already set
+if (!localStorage.getItem("moviesArr")) {
+  setLocalStorageKey("moviesArr", movieData);
+}
 
-setLocalStorageKey("moviesArr", movieData);
+/* Create getMovie() function in data-store.js. This function 
+should take a formData object as an argument, iterate through
+its properties and store them in a regular js object which 
+then we'll unshift to our movie array stored in local storage.*/
+export const getMovie = (formDataObj) => {
+  // retrieve movie array from local storage.
+  const movieArr = getLocalStorageKey("moviesArr");
+
+  /* create new regular js obj to which we'll assign formData 
+     object key-value pairs. */
+  const regularMovieObj = {};
+  formDataObj.forEach((value, key) => {
+    regularMovieObj[key] = value;
+  });
+  console.log("regularMovieObj: ", regularMovieObj);
+
+  // Now unshift the regularMovieObj to movieArr.
+  movieArr.unshift(regularMovieObj);
+
+  setLocalStorageKey("moviesArr", movieArr);
+};

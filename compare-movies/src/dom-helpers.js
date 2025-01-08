@@ -17,6 +17,10 @@ export const renderMovies = (moviesArray) => {
   const movies = getLocalStorageKey(moviesArray);
   console.log(movies.length);
 
+  /* clear the inner html of movie-grid each time the function is called */
+  const movieGrid = document.querySelector("#movie-grid");
+  movieGrid.innerHTML = "";
+
   /* iterate through the movie array and for each element which will always be an object with 
      5 properties. turn each of its properties into a list item, then add them to an unordered
      list and to finalise add them to a new div with the class .movie-item */
@@ -30,7 +34,7 @@ export const renderMovies = (moviesArray) => {
     const li3 = document.createElement("li");
     li3.textContent = `Audience Score: ${movies[i].audienceScore}`;
     const li4 = document.createElement("li");
-    li4.textContent = `Domestic: ${movies[i].domestic}`;
+    li4.textContent = `Domestic Gross: ${movies[i].domestic}`;
     const li5 = document.createElement("li");
     li5.textContent = `Critic Score: ${movies[i].criticScore}`;
 
@@ -50,6 +54,6 @@ export const renderMovies = (moviesArray) => {
     movieDiv.append(ul);
 
     // add movieDiv to div with id movie-grid
-    document.querySelector("#movie-grid").append(movieDiv);
+    movieGrid.append(movieDiv);
   }
 };
