@@ -16,8 +16,16 @@
 
 - Create getMovie() function in data-store.js. This function should take a formData object as an argument, iterate through its properties and store them in a regular js object which then we'll push to our movie array stored in local storage. \*
 
+- Create a (go back to default movies) button that when clicked it resets our movie data in our local storage to its original version. (Create a function in data-store.js that resets movie data to its original version and import it from main and call it in main, inside of an event listener of type click attached to our button element with an id of default-movies). \*
+
 3. Include 3 charts, one of them must be a bar chart that shows the movies in order of their domestic gross totals.
 
 - Gain a good basic understing of Chart.js library. \*
 
 - Install Chart.js dependencies using npm install chart.js. \*
+
+- Create three charts using Chart.js. (ONE IS DONE, THERE IS TWO MORE TO GO!!!!!)
+
+- Bar chart is complete, I also added a tooltip that displays the gross amount with a "$" before the gross amount when the user hovers over the bar element. \*\
+
+- Create a doughnut chart now that shows the relationship between gross amount and movie genre. for this task I'm estimating that I'll have to create a total of 4 functions in order to split up the logic in an organized manner. The first function must retrieve current movie array and iterate over it. then I'll be comparing the objects inside of the movie array against an empty map object. as we iterate we'll check using a conditional if statement `if (movieArr[i].genre)` key already exists in the map object, if it does exist then we'll set `map.genre += movieArr[i].domestic` and if it doesnt then we'll create a key in map with `movieArr[i].genre` as the key's name and assign it the current `movieArr[i].domestic` as its value.

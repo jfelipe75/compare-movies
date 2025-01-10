@@ -38,3 +38,9 @@ export const getMovie = (formDataObj) => {
 
   setLocalStorageKey("moviesArr", movieArr);
 };
+
+/* Create a function in data-store.js that resets movie data to its original
+   version and import it from main */
+export const resetToDefaultMovies = () => {
+  localStorage.clear();
+};
